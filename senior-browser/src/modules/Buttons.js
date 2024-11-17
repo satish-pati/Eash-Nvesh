@@ -54,7 +54,7 @@ function createButtons() {
     const readContentButton = createButtonWithImage('Read Content');
     const fontSettingsButton = createButtonWithImage('Adjust Font Settings');
     const downloadButton = createButtonWithImage('Download File');
-    //const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
+   //const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
     const BlurAdsButton = createButtonWithImage('Blur Ads: OFF');
     const ReallocateButton = createButtonWithImage('Reallocate File');
     const SecurityScanButton = createButtonWithImage('Scan Web');
@@ -101,7 +101,7 @@ function createButtons() {
         }
         highlightitem(select);
     });
-    
+   
    const logoutButton = document.createElement('button');
 logoutButton.textContent = "Logout";
 logoutButton.style.position = "fixed";
@@ -116,9 +116,57 @@ logoutButton.style.border = "none"; // Remove border
 logoutButton.style.borderRadius = "5px"; // Rounded corners
 logoutButton.style.cursor = "pointer";
 logoutButton.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.2)"; // Adds a subtle shadow
+const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
+videoButton.addEventListener('click', async function () {
+    try {
+        const response = await fetch('https://render-nl4l.onrender.com/videos');
+        const videos = await response.json();
+
+        if (videos && videos.length > 0) {
+            if (!window.location.href.includes('google.com')) {
+                showVideoModal(videos);
+            } else {
+               showVideoModal(videos);
+            }
+        } else {
+            alert('No videos found.');
+        }
+    } catch (error) {
+        console.error('Error fetching videos:', error);
+        chrome.runtime.sendMessage({ action: "openVideoPage" });
+        console.error("Message error:", chrome.runtime.lastError.message);
+    }
+});
+
+videoButton.addEventListener('click', toggleFeatures);
+// Create the login button
+const loginButton = document.createElement('button');
+loginButton.textContent = 'Login';
+
+// Check login status and add the login button if needed
+chrome.storage.local.get(['isLoggedIn'], (result) => {
+    if (!result.isLoggedIn) {
+        document.body.appendChild(loginButton);
+    }
+});
+
+// Add click event listener for the login button
+loginButton.addEventListener('click', () => {
+    // Simulate login
+    chrome.storage.local.set({ isLoggedIn: true }, () => {
+        console.log('User logged in');
+        loginButton.remove(); // Remove login button after login
+        document.body.appendChild(logoutButton); // Ensure logout button is shown
+    });
+});
 
 logoutButton.addEventListener('click', handleLogout);
-document.body.appendChild(logoutButton);
+chrome.storage.local.get(['isLoggedIn'], (result) => {
+    if (result.isLoggedIn) {
+        document.body.appendChild(logoutButton);
+
+    } 
+  });
     buttonContainer.append(
         startButton, zoomInButton, zoomOutButton, contrastIncreaseButton, contrastDecreaseButton,
         bgColorInput, detoxSearchButton, readContentButton, fontSettingsButton, downloadButton, videoButton,BlurAdsButton,ReallocateButton,SecurityScanButton
@@ -129,6 +177,7 @@ document.body.appendChild(logoutButton);
     startButton.addEventListener('click', startRecording);
     startButton.addEventListener('click', toggleFeatures);
 }
+
 function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isInput = false) {
     const button = document.createElement('div');
     button.style.display = 'flex';
@@ -204,7 +253,7 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
     span.innerText = text;
     span.style.padding = '10px 20px';  // Adjust padding for a more substantial button
     span.style.borderRadius = '25px';  // More circular border radius
-    span.style.background = '#007BFF';  // Solid blue background
+    span.style.background = '#007BFF';  // Gradient background
     span.style.color = '#FFFFFF';
     span.style.fontSize = '16px';
     span.style.fontWeight = 'bold';
@@ -216,13 +265,14 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 
     // Hover effect for the text button
     span.addEventListener('mouseenter', () => {
-        span.style.background = '#0056b3';  // Darker blue on hover
+        span.style.background ='#0056b3';  // Swap gradient colors
         span.style.transform = 'scale(1.05)';
     });
     span.addEventListener('mouseleave', () => {
-        span.style.background = '#007BFF';  // Reset to original blue
+        span.style.background = '#007BFF';
         span.style.transform = 'scale(1)';
     });
+
     if (id) button.id = id;
     if (isDisabled) button.style.pointerEvents = 'none';
 
@@ -290,9 +340,15 @@ animationStyle.innerHTML = `
    
 
     /* Keyframes for rotation */
+    @keyframes rotateTilt {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(5deg); }
+    }
+
     /* Keyframes for zoom-pulse */
     @keyframes zoomPulse {
-        0%, transform: scale(2); }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
     }
 
     /* Keyframes for glow effect */
@@ -304,6 +360,7 @@ animationStyle.innerHTML = `
     /* Hover animation combination */
     #feature-buttons span:hover {
         animation: 
+                   rotateTilt 2s infinite ease-in-out,
                    zoomPulse 1.5s infinite ease-in-out,
                    glowPulse 2s infinite ease-in-out;
         cursor: pointer;
@@ -360,9 +417,9 @@ function stopReading() {
     console.log("Content reading stopped.");
     removeStopReadingButton(); // Remove the stop button when reading stops
 }
-
-
 }
 
-createMainButton();
-createButtons();
+        createMainButton();
+        createButtons();
+ 
+

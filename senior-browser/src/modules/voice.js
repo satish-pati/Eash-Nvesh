@@ -284,13 +284,13 @@ function injectLanguageDropdown() {
     const languageSelect = document.createElement("select");
     languageSelect.id = "languageSelect";
     languageSelect.style.position = "fixed";
-    languageSelect.style.bottom = "120px";
+    languageSelect.style.bottom = "100px";
     languageSelect.style.right = "50px";
     languageSelect.style.zIndex = 10000;
     languageSelect.style.padding = "10px";
-    languageSelect.style.width = "110px";
+    languageSelect.style.width = "95px";
     languageSelect.style.height = "40px";
-    languageSelect.style.backgroundColor = "#f0f0f0";
+    languageSelect.style.backgroundColor = "#f0f4f4";
     languageSelect.style.color = "black";
     languageSelect.style.border = "1px solid #ccc";
     languageSelect.style.borderRadius = "5px";

@@ -40,6 +40,7 @@ async function checkWebsiteSecurity(url) {
         return "error";
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
 
 // Extract URL from the query parameter when the page loads
 document.getElementById("scanButton").addEventListener("click", async () =>  {
@@ -71,4 +72,5 @@ document.getElementById("scanButton").addEventListener("click", async () =>  {
         document.getElementById("status").innerText = "Error: URL not provided.";
         document.getElementById("status").style.color = "orange";
     }
+})
 });

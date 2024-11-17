@@ -12,8 +12,8 @@
     "history",
     "downloads",
     "downloads.shelf",
-    "contextMenus","http://localhost:3000/*","https://render-nl4l.onrender.com/*"],
-  "host_permissions": ["https://*.youtube.com/*","http://localhost:3000/*","https://render-nl4l.onrender.com/*"],
+    "contextMenus"],
+  "host_permissions": ["https://*.youtube.com/*"],
   "background": {
     "service_worker": "src/background.js"
   },

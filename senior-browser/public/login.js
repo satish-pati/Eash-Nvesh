@@ -5,6 +5,8 @@ loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+     message.textContent = 'Fetching data...';
+
 
     try {
         const response = await fetch('https://render-nl4l.onrender.com/login', {

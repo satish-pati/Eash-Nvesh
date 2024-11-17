@@ -339,30 +339,17 @@ const animationStyle = document.createElement('style');
 animationStyle.innerHTML = `
    
 
-    /* Keyframes for rotation */
-    @keyframes rotateTilt {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(5deg); }
-    }
-
     /* Keyframes for zoom-pulse */
     @keyframes zoomPulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.2); }
+        0% { transform: scale(2); }
     }
 
-    /* Keyframes for glow effect */
-    @keyframes glowPulse {
-        0%, 100% { text-shadow: 0 0 5px #FFF, 0 0 10px #FFD700, 0 0 20px #32CD32; }
-        50% { text-shadow: 0 0 10px #FFF, 0 0 15px #FF6347, 0 0 30px #FFA500; }
-    }
 
     /* Hover animation combination */
     #feature-buttons span:hover {
         animation: 
-                   rotateTilt 2s infinite ease-in-out,
                    zoomPulse 1.5s infinite ease-in-out,
-                   glowPulse 2s infinite ease-in-out;
+                
         cursor: pointer;
         transform-origin: center;
     }

@@ -61,7 +61,7 @@ if (request.action === 'opensecscan') {
   if (request.action === 'readContent') {
     chrome.tts.speak(request.text, { rate: 1.0, pitch: 1.0, volume: 1.0 });
   }
-  if (message.type === "searchVideos") {
+  if (request.action === "searchVideos") {
     db.collection('videos').find({}).toArray((err, videos) => {
         if (err) {
             console.error(err);

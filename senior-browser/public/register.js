@@ -1,10 +1,15 @@
 const registerForm = document.getElementById('register-form');
 const message = document.getElementById('message');
 
+
 registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+    if (/^\d+$/.test(username)) {
+        message.textContent = 'Username cannot be only numbers.';
+        return;
+    }
     try {
         const response = await fetch('https://render-nl4l.onrender.com/register', {
             method: 'POST',

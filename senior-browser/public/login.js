@@ -5,7 +5,12 @@ loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-     message.textContent = 'Fetching data...';
+     // Check if the username is numeric
+     if (/^\d+$/.test(username)) {
+        message.textContent = 'Username cannot be only numbers.';
+        return;
+    }
+    message.textContent = 'Fetching data...';
 
 
     try {

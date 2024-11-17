@@ -69,6 +69,8 @@ let currentSection = null; // variable to track the section being read
 // Function to read the page content
 function readPageContent() {
     showStopReadingButton();
+    document.body.appendChild(pauseResumeButton);
+
     const topStoriesSection = document.querySelectorAll('.N54PNb BToiNc,.kb0PBd cvP2Ce A9Y9g,.VwiC3b yXK7lf lVm3ye r025kc hJNv6b Hdw6tb,.kb0PBd A9Y9g,.N54PNb BToiNc cvP2Ce,n0jPhd ynAwRc tNxQIb nDgy9d,.n0jPhd ynAwRc tNxQIb nDgy9d,.SoAPf,.lSfe4c O5OgBe M9rH0b dWgpFe,.xrnccd, .VDXfz, .ZINbbc, .iHxmLe, .KYaZsb,.N54PNb,.N54PNb,article, h3, h4, h5, h6, .xrnccd, .VDXfz, .ZINbbc');
     let bodyText = '';
     let sectionsToRead = []; // to store sections without negative words
@@ -201,7 +203,6 @@ button.addEventListener('click', () => {
    
 
 function showStopReadingButton() {
-   
     stopReadingButton = document.createElement('button');
     stopReadingButton.innerText = "Stop Reading";
     stopReadingButton.style.position = 'fixed';
@@ -217,12 +218,60 @@ function showStopReadingButton() {
     stopReadingButton.style.cursor = 'pointer';
     stopReadingButton.addEventListener('click', stopReading);
     document.body.appendChild(stopReadingButton);
-
 }
 
 function removeStopReadingButton() {
 if (stopReadingButton) {
     stopReadingButton.remove(); // Remove the stop button
+    removepauseReadingButton()//also 
     stopReadingButton = null;
 }
 }
+
+
+
+let isPaused = false; // Variable to track the pause state
+let pausedUtterance = null; // Store the currently paused utterance
+function pauseReading() {
+    if (window.speechSynthesis.speaking && !isPaused) {
+        window.speechSynthesis.pause(); // Pause speech
+        isPaused = true;
+        pauseResumeButton.textContent = 'Resume Reading'; // Update button text
+    }
+}
+
+function resumeReading() {
+    if (isPaused) {
+        window.speechSynthesis.resume(); // Resume speech
+        isPaused = false;
+        pauseResumeButton.textContent = 'Pause Reading'; // Update button text
+    }
+}
+function removepauseReadingButton() {
+    if (stopReadingButton) {
+        pauseResumeButton.remove(); // Remove the stop button
+        pauseResumeButton= null;
+    }
+    }
+
+// Pause/Resume button setup
+const pauseResumeButton = document.createElement('button');
+pauseResumeButton.textContent = 'Pause Reading';
+pauseResumeButton.style.position = 'fixed';
+pauseResumeButton.style.top = '10px';
+pauseResumeButton.style.left = '120px';
+pauseResumeButton.style.zIndex = '10000';
+pauseResumeButton.style.padding = '10px 20px';
+pauseResumeButton.style.fontSize = '16px';
+pauseResumeButton.style.backgroundColor = '#1E90FF';
+pauseResumeButton.style.color = '#FFF';
+pauseResumeButton.style.border = 'none';
+pauseResumeButton.style.borderRadius = '5px';
+pauseResumeButton.style.cursor = 'pointer';
+pauseResumeButton.addEventListener('click', () => {
+    if (isPaused) {
+        resumeReading();
+    } else {
+        pauseReading();
+    }
+});

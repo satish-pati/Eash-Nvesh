@@ -1,4 +1,4 @@
-
+//videomodal for displaying videoes
 function showVideoModal(videos) {
     const modal = document.createElement('div');
     modal.id = 'video-modal';
@@ -24,7 +24,7 @@ function showVideoModal(videos) {
     modalContent.style.flexDirection = 'column';
     modalContent.style.alignItems = 'center';
     modalContent.style.border = '3px solid #4caf50';
-
+//search bar for searching videos
     const searchAndCloseContainer = document.createElement('div');
     searchAndCloseContainer.style.display = 'flex';
     searchAndCloseContainer.style.alignItems = 'center';
@@ -42,7 +42,7 @@ function showVideoModal(videos) {
     searchInput.style.backgroundColor = '#f0f0f0'; 
     searchInput.style.color = '#555'; 
     
-
+//close modal
     const closeModalBtn = document.createElement('button');
     closeModalBtn.innerText = 'Close';
     closeModalBtn.style.padding = '10px 20px';
@@ -64,7 +64,7 @@ function showVideoModal(videos) {
     videoTutorialsLabel.style.fontWeight = 'bold';
     videoTutorialsLabel.style.color = '#333';
     videoTutorialsLabel.style.marginBottom = '20px';
-
+//Creating video list
     const videoList = document.createElement('div');
     videoList.style.maxHeight = '400px';
     videoList.style.overflowY = 'scroll';
@@ -73,7 +73,7 @@ function showVideoModal(videos) {
     videoList.style.gap = '15px';
     videoList.style.padding = '0';
     videoList.style.width = '100%';
-
+//rendering videolist
     function renderVideoList(filteredVideos) {
         videoList.innerHTML = '';
         filteredVideos.forEach(video => {
@@ -129,13 +129,13 @@ function showVideoModal(videos) {
                 modalContent.appendChild(videoContainer);
                 videoPlayer.play();
             });
-
+//creating thumbnail for videos
             const thumbnail = document.createElement('img');
             thumbnail.src = video.thumbnail || 'https://mainstreammarketing.ca/wp-content/uploads/2021/08/Post-4-Image-2048x1536.jpeg';
             thumbnail.alt = 'Thumbnail';
             thumbnail.style.width = '80px';
             thumbnail.style.height = 'auto';
-            thumbnail.style.borderRadius = '5px';
+             thumbnail.style.borderRadius = '5px';
             thumbnail.style.marginRight = '15px';
 
             const videoTitle = document.createElement('span');
@@ -151,7 +151,7 @@ function showVideoModal(videos) {
     }
 
     renderVideoList(videos);
-
+//searching videos
     searchInput.addEventListener('input', function () {
         const searchQuery = searchInput.value.toLowerCase();
         const filteredVideos = videos.filter(video => 

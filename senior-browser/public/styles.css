@@ -1,4 +1,4 @@
-/* Overall styling */
+
 body {
     display: flex;
     flex-direction: column;
@@ -36,7 +36,6 @@ h2 {
     margin-bottom: 10px;
     color: #ff6a88;
 }
-/* Form and input styling */
 #login-form {
     display: flex;
     flex-direction: column;
@@ -79,7 +78,6 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Register link styling */
 #auth-container p a {
     color: #ff6a88;
     text-decoration: none;

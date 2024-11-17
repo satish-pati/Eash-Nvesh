@@ -175,31 +175,11 @@ videoButton.addEventListener('click', async function () {
 });
 
 videoButton.addEventListener('click', toggleFeatures);
-//  login button
-const loginButton = document.createElement('button');
-loginButton.textContent = 'Login';
-
-// Check login status and add the login button 
-chrome.storage.local.get(['isLoggedIn'], (result) => {
-    if (!result.isLoggedIn) {
-        document.body.appendChild(loginButton);
-    }
-});
-
-loginButton.addEventListener('click', () => {
-    // Simulate login
-    chrome.storage.local.set({ isLoggedIn: true }, () => {
-        console.log('User logged in');
-        loginButton.remove(); // Remove login button after login
-        document.body.appendChild(logoutButton);
-    });
-});
 
 logoutButton.addEventListener('click', handleLogout);
 chrome.storage.local.get(['isLoggedIn'], (result) => {
     if (result.isLoggedIn) {
         document.body.appendChild(logoutButton);
-
     } 
   });
     buttonContainer.append(
@@ -327,6 +307,7 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 function toggleFeatures() {
     checkLoginBeforeFeatureAccess(() => {
         console.log("Feature accessed!");
+        location.reload();
       });
       const buttonContainer = document.getElementById('some-feature-buttons');
       const buttonContainera = document.getElementById('feature-buttons');

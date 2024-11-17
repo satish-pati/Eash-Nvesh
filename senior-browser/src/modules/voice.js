@@ -93,26 +93,35 @@ function handleVoiceCommand(command, language) {
     } else if (language === 'hi-IN') {
         if (command.includes('नीचे स्क्रॉल करो') || command.includes('नीचे जाओ')) {
             window.scrollBy(0, 500);
+            responseText="पेज को नीचे स्क्रॉल किया";
         } else if (command.includes('ऊपर स्क्रॉल करो') || command.includes('ऊपर जाओ')) {
             window.scrollBy(0, -500);
+            responseText="पेज को ऊपर स्क्रॉल किया";
         } else if (command.includes('पीछे जाओ')) {
             window.history.back();
+            responseText="वापस चला गया";
         } else if (command.includes('आगे जाओ')) {
             window.history.forward();
+            responseText="आगे बढ़ गया";
         } else if (command.includes('अंत में स्क्रॉल करो')) {
             window.scrollTo(0, document.body.scrollHeight);
+            responseText="पृष्ठ को समाप्त करने के लिए स्क्रॉल किया";
         } else if (command.includes('शुरुआत में स्क्रॉल करो')) {
             window.scrollTo(0, 0);
+            responseText="पृष्ठ को शीर्ष तक स्क्रॉल किया";
         } else if (command.includes('सुनना बंद करो')) {
             stopVoiceRecognition();
+            responseText="सुनना बंद कर दिया";
             isListening = false;
         } else if (command.includes('नया तब')) {
             window.open('https://www.google.com/', '_blank');
+            responseText="नया टैब खुला";
         } else if (command.includes('यूट्यूब खोलो')) {
             window.open('https://www.youtube.com/');
+            responseText="यूट्यूब खुल गया है";
         } else if (command.includes('फेसबुक खोलो')) {
             window.open('https://www.facebook.com/');
-
+            responseText="फेसबुक खुल गया";
         } else {
             console.log("Unrecognized Hindi command:", command);
         }

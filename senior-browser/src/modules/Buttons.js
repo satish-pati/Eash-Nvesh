@@ -4,16 +4,16 @@ let mediaRecorder;
 let recordedChunks = [];
 let select = false;
 function changeBackgroundColor(color) {
-    document.documentElement.style.setProperty('--bg-color', color); 
+    // Set the background color for the whole page
+    document.documentElement.style.setProperty('--bg-color', color);
     const style = document.createElement('style');
     style.innerHTML = `
-        * {
+        body {
             background-color: var(--bg-color) !important;
         }
     `;
     document.head.appendChild(style);
 }
-
 
 function zoomPage(factorChange) {
     zoomFactor += factorChange;

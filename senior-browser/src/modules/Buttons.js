@@ -3,6 +3,7 @@ let contrastValue = 1.0;
 let mediaRecorder;
 let recordedChunks = [];
 let select = false;
+let all=false;
 function changeBackgroundColor(color) {
     // Set the background color for the whole page
     document.documentElement.style.setProperty('--bg-color', color);
@@ -23,6 +24,41 @@ function zoomPage(factorChange) {
 function changeContrast(contrast) {
     document.body.style.filter = `contrast(${contrast})`;
 }
+
+function createSomeButtons() {
+    const buttonContainers = document.createElement('div');
+    buttonContainers.id = 'some-feature-buttons';
+    buttonContainers.style.position = 'fixed';
+    buttonContainers.style.top = '0';
+    buttonContainers.style.left = '0'; // Keep position at top-left
+    buttonContainers.style.width = '350px'; // Increased width (radius of circle)
+    buttonContainers.style.height = '350px'; // Increased height (radius of circle)
+    buttonContainers.style.zIndex = 9999;
+    buttonContainers.style.backgroundColor = 'rgba(0,0,0, 0.8)';
+    buttonContainers.style.borderBottomRightRadius = '300px'; // Increased radius for larger circle
+    buttonContainers.style.transformOrigin = 'top left';
+    buttonContainers.style.transition = 'transform 0.3s ease-in-out';
+    buttonContainers.style.transform = 'scale(0)'; // Start hidden
+    buttonContainers.style.display = 'grid';
+    buttonContainers.style.gridTemplateColumns = 'repeat(2, 1fr)'; // Adjusted for smaller space
+    buttonContainers.style.gridGap = '20px'; // Increased gap between buttons
+    buttonContainers.style.padding = '20px';
+    buttonContainers.style.color = 'white';
+
+    const zoomInButton = createButtonWithImage('Zoom In', null);
+    const zoomOutButton = createButtonWithImage('Zoom Out', null);
+    const showAllButton = createButtonWithImage('Show all', null);
+    zoomInButton.addEventListener('click', () => zoomPage(0.1));
+    zoomOutButton.addEventListener('click', () => zoomPage(-0.1));
+    showAllButton.addEventListener('click', () => {
+        allFeatures();
+    });
+    buttonContainers.appendChild(zoomInButton);
+    buttonContainers.appendChild(zoomOutButton);
+    buttonContainers.appendChild(showAllButton);
+    document.body.appendChild(buttonContainers);
+}
+
 function createButtons() {
     const buttonContainer = document.createElement('div');
     buttonContainer.id = 'feature-buttons';
@@ -50,8 +86,8 @@ function createButtons() {
     const contrastIncreaseButton = createButtonWithImage('Increase Contrast');
     const contrastDecreaseButton = createButtonWithImage('Decrease Contrast');
     const bgColorInput = createButtonWithImage('Change BG Color', null, 'color.png', false, true);
-    const detoxSearchButton = createButtonWithImage('Detox Search: OFF');
-    const readContentButton = createButtonWithImage('Read Content');
+    const detoxSearchButton = createButtonWithImage('Detox Search: ON');
+    const readContentButton = createButtonWithImage('Read Content Aloud');
     const fontSettingsButton = createButtonWithImage('Adjust Font Settings');
     const downloadButton = createButtonWithImage('Download File');
    //const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
@@ -204,9 +240,9 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMD5V96BFDblxP7xMf2ZY_xC2x1gpjzoSLQ&s';
     } else if (text === 'Zoom Out') {
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFevrvcCfBDKzkw5xoP_JM-WImqPz8qWVHg&s';
-    } else if (text === 'Detox Search: OFF') {  // New case for Detox Search button
+    } else if (text === 'Detox Search: ON') {  // New case for Detox Search button
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2VuFC4jBUGmXe0o4pbwhYNggtN4DyOJY_iA&s';
-    } else if (text === 'Read Content') {  // New case for Detox Search button
+    } else if (text === 'Read Content Aloud') {  // New case for Detox Search button
         imageSrc = 'https://cdn-icons-png.flaticon.com/512/9289/9289709.png';
     } else if (text === 'Adjust Font Settings') {  // New case for Detox Search button
         imageSrc = 'https://cdn-icons-png.freepik.com/512/8144/8144468.png';
@@ -220,6 +256,9 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
         imageSrc = 'https://cdn-icons-png.flaticon.com/128/2521/2521940.png';
     } else if (text === 'Scan Web') {  // New case for Detox Search button
         imageSrc = 'https://cdn-icons-png.flaticon.com/512/7800/7800278.png';
+    }
+    else if (text === 'Show all') {  // New case for Detox Search button
+        imageSrc = 'https://cdn-icons-png.flaticon.com/512/6711/6711397.png';
     }
     else if (text === 'Increase Contrast') {  // New case for Detox Search button
         imageSrc = 'https://cdn-icons-png.freepik.com/512/25/25636.png';
@@ -242,7 +281,7 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
         img.src = imageSrc;
         img.alt = text;
         img.style.width = '50%';
-        if (text === 'Detox Search: OFF')
+        if (text === 'Detox Search: ON')
         {
             img.style.height = '50%';
             img.style.objectFit = 'cover';
@@ -291,11 +330,24 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 
 function toggleFeatures() {
     checkLoginBeforeFeatureAccess(() => {
-        // Code for the feature you want to access
         console.log("Feature accessed!");
       });
-    const buttonContainer = document.getElementById('feature-buttons');
+      const buttonContainer = document.getElementById('some-feature-buttons');
+      const buttonContainera = document.getElementById('feature-buttons');
+      if (all) {
+          buttonContainera.style.transform = 'scale(0)';
+          all = false;
+      } else {
+          buttonContainer.style.transform = buttonContainer.style.transform === 'scale(1)' ? 'scale(0)' : 'scale(1)';
+      }
+}
+
+function allFeatures() {
+    const buttonContainer = document.getElementById('some-feature-buttons');
     buttonContainer.style.transform = buttonContainer.style.transform === 'scale(1)' ? 'scale(0)' : 'scale(1)';
+    const buttonContainera = document.getElementById('feature-buttons');
+    buttonContainera.style.transform = buttonContainer.style.transform === 'scale(1)' ? 'scale(0)' : 'scale(1)';
+    all=!all;
 }
 
 function createMainButton() {
@@ -322,9 +374,9 @@ function createMainButton() {
 }
 
 function toggleDetoxSearch(button) {
-    const isDetoxOn = button.innerText.includes('OFF');
-    button.innerText = isDetoxOn ? 'Detox Search: ON' : 'Detox Search: OFF';
-    if (isDetoxOn) {
+    const isDetoxOFF = button.innerText.includes('ON');
+    button.innerText = isDetoxOFF ? 'Detox Search: OFF' : 'Detox Search: ON';
+    if (isDetoxOFF) {
         blurNegnews();
         hideNegContent();
     } else {
@@ -414,6 +466,7 @@ function stopReading() {
 }
 
         createMainButton();
+        createSomeButtons();
         createButtons();
  
 

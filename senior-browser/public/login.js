@@ -23,8 +23,8 @@ loginForm.addEventListener('submit', async (e) => {
         if (response.ok) {
             chrome.storage.local.set({ isLoggedIn: true, username: username }, () => {
                 message.textContent = 'Login successful!';
-                // Redirect to the restricted page
-                window.location.href = "https://www.google.com/";
+                // Redirect to page
+                window.history.back();
             });
             message.textContent = 'Login successful!';
             

@@ -153,9 +153,9 @@ function hideNegContent() {
 const styleboxes = document.createElement('style');
 styleboxes.innerHTML = `
     body {
-        background-color: #f0f8ff; 
+      
         font-family: Arial, sans-serif;
-        color: #333; 
+       
     }
     .negtextbox {
         background-color: white;

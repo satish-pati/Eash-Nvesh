@@ -51,7 +51,7 @@ h2 {
     border-color: #ff6a88;
 }
 
-/* Button styling */
+// Button styling 
 #register-form button {
     padding: 12px;
     font-size: 16px;
@@ -69,7 +69,7 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Login link styling */
+// Login link styling 
 #auth-container p a {
     color: #ff6a88;
     text-decoration: none;
@@ -80,7 +80,7 @@ h2 {
     color: #ff405d;
 }
 
-/* Message styling */
+// Message styling 
 #message {
     margin-top: 20px;
     font-size: 14px;

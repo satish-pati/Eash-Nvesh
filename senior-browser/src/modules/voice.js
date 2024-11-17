@@ -65,20 +65,20 @@ function handleVoiceCommand(command, language) {
         } else if (command.includes('వెనక్కి వెళ్ళు')|| command.includes('వెనక్కెళ్ళు')) {
             window.history.back();
             responseText="వెనక్కి వెళ్ళాను";
-        } else if (command.includes('ముందుకు వెళ్ళు')) {
+        } else if (command.includes('ముందుకు వెళ్ళు') || command.includes('ముందుకెళ్ళు')) {
             window.history.forward();
             responseText="ముందుకు వెళ్ళాను";
-        } else if (command.includes('చివరకి స్క్రోల్ చేయి')) {
+        } else if (command.includes('చివరకి వెళ్ళు') || command.includes('చివరికెళ్ళు')) {
             window.scrollTo(0, document.body.scrollHeight);
             responseText="చివరి వరకు స్క్రోల్ చేసాను";
-        } else if (command.includes('మొదటకి స్క్రోల్ చేయి')) {
+        } else if (command.includes('మొదటకి వెళ్ళు')||command.includes('మొదటికెళ్ళు') ) {
             window.scrollTo(0, 0);
-            responseText="పేజీ ఎగువకు స్క్రోల్ చేసాను";
-        } else if (command.includes('వినడం ఆపివేయి')) {
+            responseText="పేజీ మొదటి వరకు స్క్రోల్ చేసాను";
+        } else if (command.includes('వినడం ఆపివేయి') || command.includes('వినడం ఆపు') || command.includes('వినడం ఆపెయి') ) {
             stopVoiceRecognition();
             responseText="వినడం మానేశాను";
             isListening = false;
-        } else if (command.includes('కొత్త టాబ్')) {
+        } else if (command.includes('కొత్త టాబ్ తెరువు') || command.includes('కొత్త ట్యాబ్ తెరువు') || command.includes('కొత్త టాప్ తెరువు')) {
             window.open('https://www.google.com/', '_blank');
             responseText="కొత్త ట్యాబ్‌ని తెరిచాను";
         } else if (command.includes('యూట్యూబ్ తెరవండి') ||command.includes('యూట్యూబ్ తెరువు') ) {
@@ -166,8 +166,8 @@ function speak(text) {
     // Configure language-specific settings
     if (recognition.lang === 'te-IN') {
         utterance.lang = 'te-IN';
-        utterance.rate = 0.85;  // Slightly slower for better clarity in Telugu
-        utterance.pitch = 1.05; // Slightly higher pitch for clarity
+        utterance.rate = 0.75;  // Slightly slower for better clarity in Telugu
+        utterance.pitch = 1.2; // Slightly higher pitch for clarity
         utterance.volume = 1;
 
     } else if (recognition.lang === 'hi-IN') {

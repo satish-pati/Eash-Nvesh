@@ -1,3 +1,4 @@
+//function to highlight
 function highlightitem(enable) {
   const links = document.querySelectorAll('a, img, video');
   links.forEach(link => {
@@ -12,7 +13,7 @@ function highlightitem(enable) {
     }
   });
 }
-
+//To handle
 function handleFileClick(event) {
   event.preventDefault(); 
   const target = event.target.closest('a, img, video');

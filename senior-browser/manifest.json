@@ -1,7 +1,7 @@
 {
-  "name": "Golden Agers Browser",
+  "name": "Ease Nvesh",
   "version": "0.1.0",
-  "description": "Saving timestamps in YT videos",
+  "description": "A Browser for Everyone, Everywhere!",
   "permissions": ["storage",
     "activeTab",
     "scripting",

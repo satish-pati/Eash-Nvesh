@@ -32,10 +32,7 @@ function styleButton(button) {
 
     if (button.id === 'start_video') {
         button.style.backgroundColor = '#28a745'; 
-    } else if (button.id === 'stop_video') {
-        button.style.backgroundColor = '#dc3545'; 
-    }
-
+    } 
     button.onmouseover = () => {
         button.style.opacity = '0.8';
     };
@@ -95,7 +92,7 @@ async function startRecording() {
 
         mediaRecorder.start();
         document.getElementById('start_video').disabled = true;
-        document.getElementById('stop_video').disabled = false;
+      //  document.getElementById('stop_video').disabled = false;
     } catch (error) {
         console.error('Error starting recording:', error);
         alert('Could not start recording: ' + error.message);
@@ -105,5 +102,5 @@ async function startRecording() {
 function stopRecording() {
     mediaRecorder.stop();
     document.getElementById('start_video').disabled = false;
-    document.getElementById('stop_video').disabled = true;
+   // document.getElementById('stop_video').disabled = true;
 }

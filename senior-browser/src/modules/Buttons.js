@@ -233,8 +233,8 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
     if (isInput) {
         const input = document.createElement('input');
         input.type = 'color';
-        input.style.width = '30px';
-        input.style.height = '30px';
+        input.style.width = '50%';
+        input.style.height = '50%';
         input.style.marginBottom = '10px';
         button.appendChild(input);
     } else {
@@ -265,8 +265,8 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 
     // Hover effect for the text button
     span.addEventListener('mouseenter', () => {
-        span.style.background ='#0056b3';  // Swap gradient colors
-        span.style.transform = 'scale(1.05)';
+        span.style.background ='#0056b3'; 
+        span.style.transform = 'scale(1.15)';
     });
     span.addEventListener('mouseleave', () => {
         span.style.background = '#007BFF';

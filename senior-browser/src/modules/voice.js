@@ -19,6 +19,8 @@ function startVoiceRecognition() {
     languageSelect.addEventListener("change", () => {
         recognition.lang = languageSelect.value;
         toggleButtonIcon(false);
+        stopVoiceRecognition();
+        isListening = false;
         console.log("Language changed to:", recognition.lang);
     });
 

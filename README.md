@@ -35,10 +35,6 @@ Benefits for Senior Citizens:
 Benefits for Senior Citizens:
 •	Ease of Navigation![image_0](https://github.com/user-attachments/assets/97f4d517-9be4-4286-938b-0816a4ac3e9e)
 ![Uploading image_0.jpg…]()
-![WhatsApp Image 2024-10-22 at 23 08 01_0f690753](https://github.com/user-attachments/assets/334ecc5a-ce87-490d-ade5-41635b19287a)
-
-•
-
 
 
 

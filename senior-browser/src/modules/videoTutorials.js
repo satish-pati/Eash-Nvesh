@@ -1,26 +1,3 @@
-const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
-videoButton.addEventListener('click', async function () {
-    try {
-        const response = await fetch('https://render-nl4l.onrender.com/videos');
-        const videos = await response.json();
-
-        if (videos && videos.length > 0) {
-            if (!window.location.href.includes('google.com')) {
-                showVideoModal(videos);
-            } else {
-               showVideoModal(videos);
-            }
-        } else {
-            alert('No videos found.');
-        }
-    } catch (error) {
-        console.error('Error fetching videos:', error);
-        chrome.runtime.sendMessage({ action: "openVideoPage" });
-        console.error("Message error:", chrome.runtime.lastError.message);
-    }
-});
-
-videoButton.addEventListener('click', toggleFeatures);
 
 function showVideoModal(videos) {
     const modal = document.createElement('div');

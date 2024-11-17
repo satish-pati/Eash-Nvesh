@@ -242,8 +242,15 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
         img.src = imageSrc;
         img.alt = text;
         img.style.width = '50%';
-        img.style.height = 'auto';
-        img.style.objectFit = 'contain';
+        if (text === 'Detox Search: OFF')
+        {
+            img.style.height = '50%';
+            img.style.objectFit = 'cover';
+        }
+        else{
+            img.style.height = 'auto';
+            img.style.objectFit = 'contain';
+        }
         img.style.marginBottom = '10px';
         button.appendChild(img);
     }

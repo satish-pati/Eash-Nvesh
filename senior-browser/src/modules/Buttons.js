@@ -307,7 +307,6 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 function toggleFeatures() {
     checkLoginBeforeFeatureAccess(() => {
         console.log("Feature accessed!");
-        location.reload();
       });
       const buttonContainer = document.getElementById('some-feature-buttons');
       const buttonContainera = document.getElementById('feature-buttons');

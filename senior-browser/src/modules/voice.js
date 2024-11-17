@@ -314,8 +314,9 @@ function injectLanguageDropdown() {
     document.body.appendChild(languageSelect);
 }
 
-// Inject UI elements on page load
-window.onload = () => {
-    injectButton();
-    injectLanguageDropdown();
-};
+chrome.storage.local.get(['isLoggedIn'], (result) => {
+    if (result.isLoggedIn) {
+        injectButton();
+        injectLanguageDropdown();
+    } 
+  });

@@ -1,69 +1,3 @@
-/*let isReading = false; // variable to track reading state
-let currentSection = null; // variable to track the section being read
-
-
-// Function to read the page content
-function readPageContent() {
-    const topStoriesSection = document.querySelectorAll(' article, h3, h4, h5, h6, .xrnccd, .VDXfz, .ZINbbc, .iHxmLe, .KYaZsb');
-    let bodyText = '';
-
-    topStoriesSection.forEach(section => {
-        const hasNegativeWord = Words.some(word => {
-            const regx = new RegExp(`\\b${word}\\b`, 'gi');
-
-            return regx.test(section.innerText);
-        });
-
-        if (!section.style.filter.includes('blur') && !hasNegativeWord) {
-            bodyText += section.innerText + ' ';
-        }
-    });
-
-    if (bodyText.trim()) {
-        const utterance = new SpeechSynthesisUtterance(bodyText);
-        window.speechSynthesis.speak(utterance);
-        isReading = true;
-        button.textContent = 'Stop Reading';
-
-        // When speech ends
-        utterance.onend = () => {
-            stopReading();
-        };
-    } else {
-        alert("No content found to read that isn't blurred or negative.");
-    }
-}
-
-function stopReading() {
-    window.speechSynthesis.cancel(); 
-    isReading = false; // Update state
-    button.textContent = 'Read Content'; // Reset button text
-}
-
-// Button setup
-const button = document.createElement('button');
-button.textContent = 'Read Content';
-button.style.position = 'fixed';
-button.style.top = '60px';
-button.style.right = '10px';
-button.style.zIndex = '9999'; 
-button.style.backgroundColor = '#4CAF50';
-button.style.color = 'white';
-button.style.border = 'none';
-button.style.padding = '10px';
-button.style.cursor = 'pointer';
-button.style.borderRadius = '5px';
-button.style.fontSize = '14px';
-document.body.appendChild(button);
-
-button.addEventListener('click', () => {
-    if (isReading) {
-        stopReading();
-    } else {
-        readPageContent();
-    }
-});
-*/
 let isReading = false; // variable to track reading state
 let currentSection = null; // variable to track the section being read
 // Function to read the page content
@@ -206,8 +140,8 @@ function showStopReadingButton() {
     stopReadingButton = document.createElement('button');
     stopReadingButton.innerText = "Stop Reading";
     stopReadingButton.style.position = 'fixed';
-    stopReadingButton.style.top = '10px';
-    stopReadingButton.style.left = '10px';
+    stopReadingButton.style.bottom = '0px';
+    stopReadingButton.style.left = '700px';
     stopReadingButton.style.zIndex = 10000;
     stopReadingButton.style.padding = '10px 20px';
     stopReadingButton.style.fontSize = '16px';
@@ -227,8 +161,6 @@ if (stopReadingButton) {
     stopReadingButton = null;
 }
 }
-
-
 
 let isPaused = false; // Variable to track the pause state
 let pausedUtterance = null; // Store the currently paused utterance
@@ -250,7 +182,7 @@ function resumeReading() {
 function removepauseReadingButton() {
     if (stopReadingButton) {
         pauseResumeButton.remove(); // Remove the stop button
-        pauseResumeButton= null;
+       // pauseResumeButton= null;
     }
     }
 
@@ -258,8 +190,8 @@ function removepauseReadingButton() {
 const pauseResumeButton = document.createElement('button');
 pauseResumeButton.textContent = 'Pause Reading';
 pauseResumeButton.style.position = 'fixed';
-pauseResumeButton.style.top = '10px';
-pauseResumeButton.style.left = '120px';
+pauseResumeButton.style.bottom = '0px';
+pauseResumeButton.style.left = '1000px';
 pauseResumeButton.style.zIndex = '10000';
 pauseResumeButton.style.padding = '10px 20px';
 pauseResumeButton.style.fontSize = '16px';
@@ -275,3 +207,4 @@ pauseResumeButton.addEventListener('click', () => {
         pauseReading();
     }
 });
+

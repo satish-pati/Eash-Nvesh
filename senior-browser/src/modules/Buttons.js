@@ -54,7 +54,7 @@ function createButtons() {
     const readContentButton = createButtonWithImage('Read Content');
     const fontSettingsButton = createButtonWithImage('Adjust Font Settings');
     const downloadButton = createButtonWithImage('Download File');
-   //const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
+    //const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
     const BlurAdsButton = createButtonWithImage('Blur Ads: OFF');
     const ReallocateButton = createButtonWithImage('Reallocate File');
     const SecurityScanButton = createButtonWithImage('Scan Web');
@@ -204,7 +204,7 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
     span.innerText = text;
     span.style.padding = '10px 20px';  // Adjust padding for a more substantial button
     span.style.borderRadius = '25px';  // More circular border radius
-    span.style.background = 'linear-gradient(135deg, #FF6347, #FFD700, #32CD32)';  // Gradient background
+    span.style.background = '#007BFF';  // Solid blue background
     span.style.color = '#FFFFFF';
     span.style.fontSize = '16px';
     span.style.fontWeight = 'bold';
@@ -216,14 +216,13 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 
     // Hover effect for the text button
     span.addEventListener('mouseenter', () => {
-        span.style.background = 'linear-gradient(135deg, #FFD700, #FF6347, #32CD32)';  // Swap gradient colors
+        span.style.background = '#0056b3';  // Darker blue on hover
         span.style.transform = 'scale(1.05)';
     });
     span.addEventListener('mouseleave', () => {
-        span.style.background = 'linear-gradient(135deg, #FF6347, #FFD700, #32CD32)';
+        span.style.background = '#007BFF';  // Reset to original blue
         span.style.transform = 'scale(1)';
     });
-
     if (id) button.id = id;
     if (isDisabled) button.style.pointerEvents = 'none';
 
@@ -291,15 +290,9 @@ animationStyle.innerHTML = `
    
 
     /* Keyframes for rotation */
-    @keyframes rotateTilt {
-        0%, 100% { transform: rotate(0deg); }
-        50% { transform: rotate(5deg); }
-    }
-
     /* Keyframes for zoom-pulse */
     @keyframes zoomPulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.2); }
+        0%, transform: scale(2); }
     }
 
     /* Keyframes for glow effect */
@@ -311,7 +304,6 @@ animationStyle.innerHTML = `
     /* Hover animation combination */
     #feature-buttons span:hover {
         animation: 
-                   rotateTilt 2s infinite ease-in-out,
                    zoomPulse 1.5s infinite ease-in-out,
                    glowPulse 2s infinite ease-in-out;
         cursor: pointer;

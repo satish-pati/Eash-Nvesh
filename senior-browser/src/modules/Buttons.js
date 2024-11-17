@@ -30,18 +30,18 @@ function createSomeButtons() {
     buttonContainers.id = 'some-feature-buttons';
     buttonContainers.style.position = 'fixed';
     buttonContainers.style.top = '0';
-    buttonContainers.style.left = '0'; // Keep position at top-left
-    buttonContainers.style.width = '350px'; // Increased width (radius of circle)
-    buttonContainers.style.height = '350px'; // Increased height (radius of circle)
+    buttonContainers.style.left = '0'; 
+    buttonContainers.style.width = '350px'; 
+    buttonContainers.style.height = '350px';
     buttonContainers.style.zIndex = 9999;
     buttonContainers.style.backgroundColor = 'rgba(0,0,0, 0.8)';
-    buttonContainers.style.borderBottomRightRadius = '300px'; // Increased radius for larger circle
+    buttonContainers.style.borderBottomRightRadius = '300px';
     buttonContainers.style.transformOrigin = 'top left';
     buttonContainers.style.transition = 'transform 0.3s ease-in-out';
-    buttonContainers.style.transform = 'scale(0)'; // Start hidden
+    buttonContainers.style.transform = 'scale(0)'; 
     buttonContainers.style.display = 'grid';
-    buttonContainers.style.gridTemplateColumns = 'repeat(2, 1fr)'; // Adjusted for smaller space
-    buttonContainers.style.gridGap = '20px'; // Increased gap between buttons
+    buttonContainers.style.gridTemplateColumns = 'repeat(2, 1fr)'; 
+    buttonContainers.style.gridGap = '20px'; 
     buttonContainers.style.padding = '20px';
     buttonContainers.style.color = 'white';
 
@@ -65,16 +65,16 @@ function createButtons() {
     buttonContainer.style.position = 'fixed';
     buttonContainer.style.top = '0';
     buttonContainer.style.left = '0';
-    buttonContainer.style.width = '90vw';  // Set the container to take 3/4 of the screen width
-    buttonContainer.style.height = '60vh'; // Decrease the height to around 70% of the screen height
+    buttonContainer.style.width = '90vw';  
+    buttonContainer.style.height = '60vh'; 
     buttonContainer.style.zIndex = 9999;
     buttonContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
     buttonContainer.style.borderBottomRightRadius = '10px';
     buttonContainer.style.padding = '20px';
     buttonContainer.style.display = 'grid';
-    buttonContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';  // Larger buttons
-    buttonContainer.style.rowGap = '0px';  // Reduced row gap for closer vertical spacing
-    buttonContainer.style.columnGap = '25px';  // Set column gap as needed
+    buttonContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(150px, 1fr))';  
+    buttonContainer.style.rowGap = '0px';  
+    buttonContainer.style.columnGap = '25px';  
     buttonContainer.style.color = 'white';
     buttonContainer.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
     buttonContainer.style.transformOrigin = 'top left';
@@ -141,17 +141,17 @@ function createButtons() {
    const logoutButton = document.createElement('button');
 logoutButton.textContent = "Logout";
 logoutButton.style.position = "fixed";
-logoutButton.style.bottom = "20px"; // Position from the bottom
-logoutButton.style.left = "20px"; // Position from the left
+logoutButton.style.bottom = "20px"; 
+logoutButton.style.left = "20px";
 logoutButton.style.zIndex = 1000;
 // Styling the button
 logoutButton.style.padding = "10px 20px";
-logoutButton.style.backgroundColor = "#f44336"; // A red color that stands out
-logoutButton.style.color = "white"; // Text color
-logoutButton.style.border = "none"; // Remove border
-logoutButton.style.borderRadius = "5px"; // Rounded corners
+logoutButton.style.backgroundColor = "#f44336"; 
+logoutButton.style.color = "white"; 
+logoutButton.style.border = "none"; 
+logoutButton.style.borderRadius = "5px"; 
 logoutButton.style.cursor = "pointer";
-logoutButton.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.2)"; // Adds a subtle shadow
+logoutButton.style.boxShadow = "0px 4px 8px rgba(0, 0, 0, 0.2)";
 const videoButton = createButtonWithImage('Video Tutorials', 'video_tutorial_button');
 videoButton.addEventListener('click', async function () {
     try {
@@ -175,24 +175,23 @@ videoButton.addEventListener('click', async function () {
 });
 
 videoButton.addEventListener('click', toggleFeatures);
-// Create the login button
+//  login button
 const loginButton = document.createElement('button');
 loginButton.textContent = 'Login';
 
-// Check login status and add the login button if needed
+// Check login status and add the login button 
 chrome.storage.local.get(['isLoggedIn'], (result) => {
     if (!result.isLoggedIn) {
         document.body.appendChild(loginButton);
     }
 });
 
-// Add click event listener for the login button
 loginButton.addEventListener('click', () => {
     // Simulate login
     chrome.storage.local.set({ isLoggedIn: true }, () => {
         console.log('User logged in');
         loginButton.remove(); // Remove login button after login
-        document.body.appendChild(logoutButton); // Ensure logout button is shown
+        document.body.appendChild(logoutButton);
     });
 });
 
@@ -229,8 +228,8 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
     button.style.borderRadius = '15px';
     button.style.transition = 'background-color 0.3s, transform 0.2s';
     button.style.textAlign = 'center';
-    button.style.height = '150px';  // Fixed height for buttons
-    button.style.width = '100%';  // Make each button take full width within grid cell
+    button.style.height = '150px';
+    button.style.width = '100%';  
     button.style.position = 'relative';
 
 
@@ -240,35 +239,33 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGMD5V96BFDblxP7xMf2ZY_xC2x1gpjzoSLQ&s';
     } else if (text === 'Zoom Out') {
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzFevrvcCfBDKzkw5xoP_JM-WImqPz8qWVHg&s';
-    } else if (text === 'Detox Search: ON') {  // New case for Detox Search button
+    } else if (text === 'Detox Search: ON') { 
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2VuFC4jBUGmXe0o4pbwhYNggtN4DyOJY_iA&s';
-    } else if (text === 'Read Content Aloud') {  // New case for Detox Search button
+    } else if (text === 'Read Content Aloud') { 
         imageSrc = 'https://cdn-icons-png.flaticon.com/512/9289/9289709.png';
-    } else if (text === 'Adjust Font Settings') {  // New case for Detox Search button
+    } else if (text === 'Adjust Font Settings') {  
         imageSrc = 'https://cdn-icons-png.freepik.com/512/8144/8144468.png';
-    } else if (text === 'Download File') {  // New case for Detox Search button
+    } else if (text === 'Download File') {  
         imageSrc = 'https://www.citypng.com/public/uploads/preview/download-file-document-blue-outline-icon-png-img-701751694962530gugetptdob.png';
-    } else if (text === 'Video Tutorials') {  // New case for Detox Search button
+    } else if (text === 'Video Tutorials') {  
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMiZjld3TWP8VEsC605QCl7z5BxfAeBbNhvw&s';
-    } else if (text === 'Blur Ads: OFF') {  // New case for Detox Search button
+    } else if (text === 'Blur Ads: OFF') { 
         imageSrc = 'https://img.freepik.com/premium-vector/ad-blocker-icon-vector-image-can-be-used-digital-marketing_120816-168337.jpg';
-    } else if (text === 'Reallocate File') {  // New case for Detox Search button
+    } else if (text === 'Reallocate File') {  
         imageSrc = 'https://cdn-icons-png.flaticon.com/128/2521/2521940.png';
-    } else if (text === 'Scan Web') {  // New case for Detox Search button
+    } else if (text === 'Scan Web') {  
         imageSrc = 'https://cdn-icons-png.flaticon.com/512/7800/7800278.png';
     }
-    else if (text === 'Show all') {  // New case for Detox Search button
+    else if (text === 'Show all') {  
         imageSrc = 'https://cdn-icons-png.flaticon.com/512/6711/6711397.png';
     }
-    else if (text === 'Increase Contrast') {  // New case for Detox Search button
+    else if (text === 'Increase Contrast') {  
         imageSrc = 'https://cdn-icons-png.freepik.com/512/25/25636.png';
     }
-    else if (text === 'Decrease Contrast') {  // New case for Detox Search button
+    else if (text === 'Decrease Contrast') {  
         imageSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaVWPFreElWI1l8TGaWo6EHVYBvv04qGwmnA&s';
         }
-    // Add other cases for buttons here as needed...
-
-    // Create image element if needed
+   
     if (isInput) {
         const input = document.createElement('input');
         input.type = 'color';
@@ -294,22 +291,21 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
         button.appendChild(img);
     }
 
-    // Create a text span with rounded, stylish buttons
     const span = document.createElement('span');
     span.innerText = text;
-    span.style.padding = '10px 20px';  // Adjust padding for a more substantial button
-    span.style.borderRadius = '25px';  // More circular border radius
-    span.style.background = '#007BFF';  // Gradient background
+    span.style.padding = '10px 20px';  
+    span.style.borderRadius = '25px'; 
+    span.style.background = '#007BFF';  
     span.style.color = '#FFFFFF';
     span.style.fontSize = '16px';
     span.style.fontWeight = 'bold';
     span.style.cursor = 'pointer';
     span.style.transition = 'all 0.3s ease-in-out';
     span.style.position = 'absolute';
-    span.style.bottom = '10px';  // Position the text button at the bottom of the button container
-    span.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.2)';  // Subtle shadow for depth
+    span.style.bottom = '10px';  
+    span.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.2)'; 
 
-    // Hover effect for the text button
+    
     span.addEventListener('mouseenter', () => {
         span.style.background ='#0056b3'; 
         span.style.transform = 'scale(1.15)';
@@ -397,18 +393,12 @@ function toggleBlurAdContent(button) {
 const animationStyle = document.createElement('style');
 animationStyle.innerHTML = `
    
-
-    /* Keyframes for zoom-pulse */
     @keyframes zoomPulse {
         0% { transform: scale(2); }
     }
 
-
-    /* Hover animation combination */
     #feature-buttons span:hover {
-        animation: 
-                   zoomPulse 1.5s infinite ease-in-out,
-                
+        animation:  zoomPulse 1.5s infinite ease-in-out,
         cursor: pointer;
         transform-origin: center;
     }
@@ -452,16 +442,14 @@ function toggleReadContent() {
 
 function readPageContent() {
     isReading = true;
-    // Code to start reading the content on the page
     console.log("Reading content...");
-    showStopReadingButton(); // Show the stop button when reading starts
+    showStopReadingButton(); 
 }
 
 function stopReading() {
     isReading = false;
-    // Code to stop reading the content on the page
     console.log("Content reading stopped.");
-    removeStopReadingButton(); // Remove the stop button when reading stops
+    removeStopReadingButton(); 
 }
 }
 

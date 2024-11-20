@@ -83,11 +83,26 @@ function handleVoiceCommand(command, language) {
             responseText="కొత్త ట్యాబ్‌ని తెరిచాను";
         } else if (command.includes('యూట్యూబ్ తెరవండి') ||command.includes('యూట్యూబ్ తెరువు') ) {
             window.open('https://www.youtube.com/');
-            responseText="యూట్యూబ్ ఓపెన్ చేసాను";
+            responseText="యూట్యూబ్ ఓపెన్ చేశాను";
         } else if (command.includes('ఫేస్‌బుక్ తెరవండి')||command.includes('ఫేస్‌బుక్ తెరువు')) {
             window.open('https://www.facebook.com/');
             responseText="ఫేస్ బుక్ ఓపెన్ చేసాను";
-        } else {
+        } else if (command.includes('పెద్దది చేయి ')|| command.includes('పెద్దగా చేయి')) {
+            zoomPage(0.1);
+            responseText="పేజీ పెద్దగా చెయ్యబడింది";
+        } else if (command.includes('చిన్నది చేయి ')|| command.includes('చిన్నగా చేయి')) {
+            zoomPage(-0.1);
+            responseText="పేజీ చిన్నగా చెయ్యబడింది";
+        } else if (command.includes('రికార్డును ప్రారంభించండి')|| command.includes('రికార్డు ను ప్రారంభించండి')){
+            startRecording();
+            responseText="స్క్రీన్ రికార్డ్ ప్రారంభమైంది";
+        } else if (command.includes('ఫాంట్ సెట్టింగులు')) {
+            loadFontSettingsModal();
+             responseText="ఫాంట్ సెట్టింగ్స్ ఓపెన్ చెయ్యబడింది";
+         }  else if (command.includes('పేజీని స్కాన్ చేయండి')) {
+            SecurityScan();
+            responseText="పేజీ స్కాన్ చేయబడుతోంది";
+          }else {
             console.log("Unrecognized Telugu command:", command);
         }
     } else if (language === 'hi-IN') {
@@ -122,7 +137,22 @@ function handleVoiceCommand(command, language) {
         } else if (command.includes('फेसबुक खोलो')) {
             window.open('https://www.facebook.com/');
             responseText="फेसबुक खुल गया";
-        } else {
+        } else if (command.includes('इसे ज़ूम करें ')) {
+            zoomPage(0.1);
+            responseText="पृष्ठ ज़ूम किया गया है";
+        } else if (command.includes('इसे छोटा करो')) {
+            zoomPage(-0.1);
+            responseText="पेज ज़ूम आउट हो गया है";
+        } else if (command.includes('रिकॉर्डिंग प्रारंभ करें')){
+            startRecording();
+            responseText="रिकॉर्डिंग शुरू कर दी";
+        } else if (command.includes('फ़ॉन्ट सेटिंग्स')) {
+            loadFontSettingsModal();
+             responseText="फ़ॉन्ट सेटिंग्स खोली गईं";
+         }  else if (command.includes('स्कैन करें')||('स्कैन करो')) {
+            SecurityScan();
+            responseText="पेज स्कैन किया जा रहा है";
+          }else {
             console.log("Unrecognized Hindi command:", command);
         }
     } else {
@@ -157,7 +187,22 @@ function handleVoiceCommand(command, language) {
         } else if (command.includes('open facebook')) {
             window.open('https://www.facebook.com/');
             responseText="Facebook is opened";
-        } else {
+        } else if (command.includes('zoom in')) {
+            zoomPage(0.1);
+            responseText="page is zoomed";
+        } else if (command.includes('zoom out')) {
+            zoomPage(-0.1);
+            responseText="page is zoomed out";
+        } else if (command.includes('start video')) {
+            startRecording();
+            responseText="video recording is activated";
+        } else if (command.includes('adjust font')) {
+           loadFontSettingsModal();
+            responseText="font settings loaded";
+        } else if (command.includes('scan page')) {
+            SecurityScan();
+            responseText="scannning the web page";
+          }else {
             console.log("Unrecognized English command:", command);
         }
     }
@@ -314,8 +359,3 @@ function injectLanguageDropdown() {
     document.body.appendChild(languageSelect);
 }
 
-// Inject UI elements on page load
-window.onload = () => {
-    injectButton();
-    injectLanguageDropdown();
-};

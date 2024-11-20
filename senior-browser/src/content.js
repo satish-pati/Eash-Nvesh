@@ -32,15 +32,22 @@ function createLoginButton() {
       loginBtn.id = 'login-btn';
       loginBtn.innerText = 'Login';
       loginBtn.style.position = 'fixed';
-      loginBtn.style.bottom = '20px';
-      loginBtn.style.right = '20px';
+      loginBtn.style.width = '150px'; 
+      loginBtn.style.height = '50px';  
+      loginBtn.style.top = '40px';  
+      loginBtn.style.right = '45px'; 
+      loginBtn.style.transform = 'translate(-50%, -50%)';  
       loginBtn.style.zIndex = 1000;
-      loginBtn.style.padding = '10px 20px';
+      loginBtn.style.padding = '0';  
       loginBtn.style.backgroundColor = '#4CAF50';
       loginBtn.style.color = '#fff';
       loginBtn.style.border = 'none';
       loginBtn.style.borderRadius = '5px';
       loginBtn.style.cursor = 'pointer';
+      loginBtn.style.fontSize = '18px'; 
+      loginBtn.style.textAlign = 'center'; 
+      loginBtn.style.lineHeight = '50px'; 
+
 
       document.body.appendChild(loginBtn);
 

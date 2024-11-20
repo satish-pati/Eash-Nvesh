@@ -101,6 +101,7 @@ function handleVoiceCommand(command, language) {
              responseText="ఫాంట్ సెట్టింగ్స్ ఓపెన్ చెయ్యబడింది";
          }  else if (command.includes('పేజీని స్కాన్ చేయండి')) {
             SecurityScan();
+            toggleFeatures();
             responseText="పేజీ స్కాన్ చేయబడుతోంది";
           }else {
             console.log("Unrecognized Telugu command:", command);
@@ -151,6 +152,7 @@ function handleVoiceCommand(command, language) {
              responseText="फ़ॉन्ट सेटिंग्स खोली गईं";
          }  else if (command.includes('स्कैन करो')) {
             SecurityScan();
+            toggleFeatures();
             responseText="पेज स्कैन किया जा रहा है";
           }else {
             console.log("Unrecognized Hindi command:", command);
@@ -201,6 +203,7 @@ function handleVoiceCommand(command, language) {
             responseText="font settings loaded";
         } else if (command.includes('scan page')) {
             SecurityScan();
+            toggleFeatures();
             responseText="scannning the web page";
           }else {
             console.log("Unrecognized English command:", command);

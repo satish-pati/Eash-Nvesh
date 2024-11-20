@@ -177,11 +177,7 @@ videoButton.addEventListener('click', async function () {
 videoButton.addEventListener('click', toggleFeatures);
 
 logoutButton.addEventListener('click', handleLogout);
-chrome.storage.local.get(['isLoggedIn'], (result) => {
-    if (result.isLoggedIn) {
         document.body.appendChild(logoutButton);
-    } 
-  });
     buttonContainer.append(
         startButton, zoomInButton, zoomOutButton, contrastIncreaseButton, contrastDecreaseButton,
         bgColorInput, detoxSearchButton, readContentButton, fontSettingsButton, downloadButton, videoButton,BlurAdsButton,ReallocateButton,SecurityScanButton
@@ -304,10 +300,8 @@ function createButtonWithImage(text, id, imageSrc = '', isDisabled = false, isIn
 
 
 
+
 function toggleFeatures() {
-    checkLoginBeforeFeatureAccess(() => {
-        console.log("Feature accessed!");
-      });
       const buttonContainer = document.getElementById('some-feature-buttons');
       const buttonContainera = document.getElementById('feature-buttons');
       if (all) {
@@ -432,9 +426,5 @@ function stopReading() {
     removeStopReadingButton(); 
 }
 }
-
-        createMainButton();
-        createSomeButtons();
-        createButtons();
  
 

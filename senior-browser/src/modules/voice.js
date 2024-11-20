@@ -137,7 +137,7 @@ function handleVoiceCommand(command, language) {
         } else if (command.includes('फेसबुक खोलो')) {
             window.open('https://www.facebook.com/');
             responseText="फेसबुक खुल गया";
-        } else if (command.includes('इसे ज़ूम करें ')) {
+        } else if (command.includes('इसे बड़ा करो')) {
             zoomPage(0.1);
             responseText="पृष्ठ ज़ूम किया गया है";
         } else if (command.includes('इसे छोटा करो')) {
@@ -146,10 +146,10 @@ function handleVoiceCommand(command, language) {
         } else if (command.includes('रिकॉर्डिंग प्रारंभ करें')){
             startRecording();
             responseText="रिकॉर्डिंग शुरू कर दी";
-        } else if (command.includes('फ़ॉन्ट सेटिंग्स')) {
+        } else if (command.includes('फॉण्ट सेटिंग्स कोलो')) {
             loadFontSettingsModal();
              responseText="फ़ॉन्ट सेटिंग्स खोली गईं";
-         }  else if (command.includes('स्कैन करें')||('स्कैन करो')) {
+         }  else if (command.includes('स्कैन करो')) {
             SecurityScan();
             responseText="पेज स्कैन किया जा रहा है";
           }else {
@@ -329,7 +329,7 @@ function injectLanguageDropdown() {
     const languageSelect = document.createElement("select");
     languageSelect.id = "languageSelect";
     languageSelect.style.position = "fixed";
-    languageSelect.style.bottom = "100px";
+    languageSelect.style.bottom = "120px";
     languageSelect.style.right = "50px";
     languageSelect.style.zIndex = 10000;
     languageSelect.style.padding = "10px";

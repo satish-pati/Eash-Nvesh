@@ -1,46 +1,16 @@
-//To change the button color and text on clicking
-/*injectButton();
-//  detox search is only applied when the toggle is ON
 window.addEventListener('load', () => {
-    if (isDetoxSearchOn) {
-        blurNegnews();
-        hideNegContent();
+    createLoginButton();
+});
+window.addEventListener('load', () => {
+  chrome.storage.local.get(['isLoggedIn'], (result) => {
+    if (result.isLoggedIn) {
+        createMainButton();
+        createButtons();
+        createSomeButtons();
+        injectButton();
+        injectLanguageDropdown();
     }
-});
-window.addEventListener('load', () => {
-    document.body.appendChild(button);
-});*/
-
-
-
-/*
-// Inject the button for font settings
-const button2 = document.createElement('button');
-button2.id = 'fontSettingsBtn';
-button2.innerText = 'Adjust Font Settings';
-button2.style.position = 'fixed';
-button2.style.top = '140px';
-button2.style.right = '20px';
-button2.style.padding = '10px 20px';
-button2.style.fontSize = '16px';
-button2.style.zIndex = '9999';
-button2.style.backgroundColor = '#007bff';
-button2.style.color = '#fff';
-button2.style.border = 'none';
-button2.style.borderRadius = '5px';
-button2.style.cursor = 'pointer';
-document.body.appendChild(button2);
-// Load the font settings modal when the button is clicked
-button2.addEventListener('click', () => {
-    loadFontSettingsModal();
-});*//**/
-window.addEventListener('load', () => {
-    injectFeatureButtons();
-    //injectLogoutButton()
-});
-window.addEventListener('load', () => {
-  createMainButton();
-  createButtons(); 
+  });
 });
 /*
   // content.js
@@ -53,6 +23,43 @@ chrome.storage.local.get(['isLoggedIn'], (result) => {
   
 
 });*/
+function createLoginButton() {
+  chrome.storage.local.get(['isLoggedIn'], (result) => {
+  if (!result.isLoggedIn) {
+  const loginButtonExists = document.getElementById('login-btn');
+  if (!loginButtonExists) {
+      const loginBtn = document.createElement('button');
+      loginBtn.id = 'login-btn';
+      loginBtn.innerText = 'Login';
+      loginBtn.style.position = 'fixed';
+      loginBtn.style.bottom = '20px';
+      loginBtn.style.right = '20px';
+      loginBtn.style.zIndex = 1000;
+      loginBtn.style.padding = '10px 20px';
+      loginBtn.style.backgroundColor = '#4CAF50';
+      loginBtn.style.color = '#fff';
+      loginBtn.style.border = 'none';
+      loginBtn.style.borderRadius = '5px';
+      loginBtn.style.cursor = 'pointer';
+
+      document.body.appendChild(loginBtn);
+
+      // Attach click event
+      loginBtn.addEventListener('click', () => {
+        checkLoginBeforeFeatureAccess(() => {
+          console.log("Feature accessed!");
+        });
+        loginBtn.style.display = 'none';
+        createMainButton();
+        createButtons();
+        createSomeButtons();
+        injectButton();
+        injectLanguageDropdown();
+      });
+    }
+  }
+  });
+}
 function checkLoginBeforeFeatureAccess(featureCallback) {
   chrome.storage.local.get(['isLoggedIn'], (result) => {
     if (result.isLoggedIn) {

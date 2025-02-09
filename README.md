@@ -90,7 +90,7 @@ Many elderly people find current browsers too complicated, with complex interfac
 | 11 | Multi-language     | Allows users to browse in their native language.       | 2       |
 
 ## 🎥 Demo Video
-Check out the demo - [Click here](https://drive.google.com/file/d/12GK7gDfiAUQW-5vZfiZSWig5qFDpMJjt/view?usp=drive_link)
+Check out the demo video - [Click here](https://drive.google.com/file/d/12GK7gDfiAUQW-5vZfiZSWig5qFDpMJjt/view?usp=drive_link)
 
 
 ## 🚀 Installation & Setup

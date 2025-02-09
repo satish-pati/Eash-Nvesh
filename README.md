@@ -62,8 +62,6 @@ Many elderly people find current browsers too complicated, with complex interfac
 ### ☁️ Hosting Server  
 - **Render** - Deploys and manages the backend Server.  
 
-  ## 🛠️ System Requirements.
-
 ## 👤 User Profile
 
 ### 👴 Target Users
@@ -125,5 +123,5 @@ git clone https://github.com/satish-pati/UG2_Team2_SEWebdev.git
 🎯 **Nvesh is designed to make the internet a safer and more accessible place for the elderly!** 🖥️👵🎙️
 
 
-CheckOut the Eash-Nvesh ReadMe file -
+CheckOut the Eash-Nvesh Features -
 [View PDF](https://github.com/satish-pati/Eash-Nvesh/blob/d71796b8dc35994dfcd0ff4cdb8d1f0253562d8b/Ease%20Nvesh-%20Read%20Me.pdf)

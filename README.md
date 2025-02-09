@@ -1,4 +1,4 @@
-NVESH CHROME EXTENSION 🚀
+# NVESH CHROME EXTENSION 🚀
 
 📌 Project Description
 

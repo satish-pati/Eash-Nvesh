@@ -91,20 +91,6 @@ Many elderly people find current browsers too complicated, with complex interfac
 | 10 | Ad Blocker        | Blurs and blocks spam ads.                             | 2       |
 | 11 | Multi-language     | Allows users to browse in their native language.       | 2       |
 
-## 🏗️ Modules Implemented
-
-- 🎙️ **ScreenReader** - Reads website text aloud.
-- 🎥 **ScreenRecorder** - Captures screen activity easily.
-- 🔍 **Detox Search** - Blurs negative news and harmful content.
-- 🎨 **Background Customization** - Allows users to change background color.
-- 🎛️ **Accessibility Widgets** - Provides zoom and contrast options.
-- 📌 **Bookmarks** - Saves timestamps for videos.
-- 🚫 **Ad Blocker** - Automatically blurs spam ads.
-- 📥 **File Manager** - Enables file downloading, renaming, and relocation.
-- 🛡️ **Security Scan** - Checks website safety and security.
-- 🎬 **Video Tutorials** - Guides users through extension features.
-- 🎙️ **Voice Commands** - Enables hands-free browsing.
-- 🔑 **Login System** - Secure authentication for user profiles.
 
 
 

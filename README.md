@@ -127,12 +127,12 @@ git clone https://github.com/satish-pati/UG2_Team2_SEWebdev.git
 
 ## 👥 Contributors
 
-- Satish Pati
-- [Other Team Members]
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
+- P.Satish 
+- P.Tejas
+- P.Binnu
+- M.Saranya
+- P.Ganesh
+- Amar Gupta
 
 ---
 

@@ -89,9 +89,8 @@ Many elderly people find current browsers too complicated, with complex interfac
 | 10 | Ad Blocker        | Blurs and blocks spam ads.                             | 2       |
 | 11 | Multi-language     | Allows users to browse in their native language.       | 2       |
 
-
-
-[Video](https://drive.google.com/file/d/12GK7gDfiAUQW-5vZfiZSWig5qFDpMJjt/view?usp=drive_link)
+## 🎥 Demo Video
+Check out the demo - [Click here](https://drive.google.com/file/d/12GK7gDfiAUQW-5vZfiZSWig5qFDpMJjt/view?usp=drive_link)
 
 
 ## 🚀 Installation & Setup

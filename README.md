@@ -1,4 +1,4 @@
-# Nvesh Chrome Extension 🚀
+# 🚀 Eash-Nvesh Chrome Extension 
 
 ## 📖 Project Description
 
@@ -36,17 +36,18 @@ Many elderly people find current browsers too complicated, with complex interfac
 - 🔎 **Security Scan** - Ensures safe browsing.
 - 🎬 **Video Tutorials** - Helps users understand features easily.
 
-## 🛠️ System Requirements
 
-### 🖥️ Front-End
-- **HTML/CSS** - Ensures large text, clear buttons, and high-contrast mode.
-- **JavaScript** - Enhances interactivity (voice commands, button clicks, text resizing).
+## 🏗️ Tech Stack  
+### 🎨 Front-End  
+- **HTML/CSS** - Ensures large text, clear buttons, and high-contrast mode.  
+- **JavaScript** - Enhances interactivity (voice commands, button clicks, text resizing).  
 
-### ⚙️ Back-End
-- **Node.js** - Manages server-side operations.
-- **Express.js** - Handles API interactions (user settings, search history, safe browsing filters).
+### ⚙️ Back-End  
+- **Node.js** - Manages server-side operations.  
+- **Express.js** - Handles API interactions (user settings, search history, safe browsing filters).  
+
+### 🗄️ Database  
 - **MongoDB** - Stores user data, browsing sessions, and preferences.
-
 ### 🔗 API Integration
 - **Web Speech API** - Enables voice commands and text-to-speech.
 
@@ -56,7 +57,12 @@ Many elderly people find current browsers too complicated, with complex interfac
   - `chrome.tabs` - Manages browser tabs.
   - `chrome.storage` - Saves user preferences.
   - `chrome.runtime` - Enables internal communication.
-- **Content Scripts** - Allows interaction with web pages.
+- **Content Scripts** - Allows interaction with web pages. 
+
+### ☁️ Hosting Server  
+- **Render** - Deploys and manages the backend Server.  
+
+  ## 🛠️ System Requirements.
 
 ## 👤 User Profile
 
@@ -100,26 +106,9 @@ Many elderly people find current browsers too complicated, with complex interfac
 - 🎙️ **Voice Commands** - Enables hands-free browsing.
 - 🔑 **Login System** - Secure authentication for user profiles.
 
-## 🏗️ Tech Stack
 
-### 🎨 Client-Side Dependencies
-```json
-"dependencies": {
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1",
-  "tesseract.js": "^5.1.1"
-}
-```
 
-### ⚙️ Server-Side Dependencies
-```json
-"dependencies": {
-  "bcryptjs": "^2.4.3",
-  "cors": "^2.8.5",
-  "express": "^4.21.1",
-  "mongodb": "^6.10.0"
-}
-```
+
 
 ## 🚀 Installation & Setup
 

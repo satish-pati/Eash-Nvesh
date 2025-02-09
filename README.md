@@ -4,7 +4,7 @@
 
 Many elderly people find current browsers too complicated, with complex interfaces, excessive options, and confusing settings. This makes it difficult for them to navigate the internet confidently or perform simple tasks. 
 
-**Nvesh** aims to simplify the browsing experience by reducing unnecessary features, offering easy-to-read layouts, and providing voice assistance for hands-free browsing. The extension ensures ease of use and accessibility, helping seniors access the digital world comfortably and independently.
+**Eash Nvesh** aims to simplify the browsing experience by reducing unnecessary features, offering easy-to-read layouts, and providing voice assistance for hands-free browsing. The extension ensures ease of use and accessibility, helping seniors access the digital world comfortably and independently.
 
 ## 🌍 Sustainable Development Goals (SDGs) Addressed
 

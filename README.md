@@ -1,5 +1,4 @@
-🚀 Project Launch  
-Eash Nvesh
+🚀 Eash Nvesh
 
 
 CheckOut the Eash-Nvesh ReadMe file -

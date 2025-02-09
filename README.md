@@ -1,6 +1,6 @@
 # NVESH CHROME EXTENSION 🚀
 
-##📌 Project Description
+## 📌 Project Description
 
 Many elderly people find modern web browsers too complex, with cluttered interfaces and confusing settings. Nvesh is a Chrome extension designed to simplify browsing for senior citizens by offering:
 

@@ -5,7 +5,6 @@ let recordedChunks = [];
 let select = false;
 let all=false;
 function changeBackgroundColor(color) {
-    // Set the background color for the whole page
     document.documentElement.style.setProperty('--bg-color', color);
     const style = document.createElement('style');
     style.innerHTML = `
